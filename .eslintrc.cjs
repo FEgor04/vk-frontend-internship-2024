@@ -6,9 +6,17 @@ module.exports = {
     'plugin:@typescript-eslint/strict-type-checked',
     'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/stylistic-type-checked',
+    '@feature-sliced',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
+  settings: {
+    "import/resolver": {
+      typescript: {
+        alwaysTryTypes: true
+      }
+    }
+  },
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',

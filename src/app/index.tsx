@@ -1,7 +1,7 @@
 import { QueryClient } from "@tanstack/react-query";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./global.css";
+import "@vkontakte/vkui/dist/vkui.css";
 
 import { Providers } from "./providers";
 

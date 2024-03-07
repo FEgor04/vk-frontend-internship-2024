@@ -1,9 +1,28 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { type QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  AdaptivityProvider,
+  AppRoot,
+  ConfigProvider,
+  Panel,
+  View,
+} from "@vkontakte/vkui";
 
-type Props = React.PropsWithChildren<{
+type Props = {
   queryClient: QueryClient;
-}>;
+};
 
-export const Providers = ({ queryClient, children }: Props) => (
-  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+export const Providers = ({ queryClient }: Props) => (
+  <QueryClientProvider client={queryClient}>
+    <ConfigProvider>
+      <AdaptivityProvider>
+        <AppRoot>
+          <View activePanel="catfact">
+            <Panel id="catfact">
+              <h1>Hello there!</h1>
+            </Panel>
+          </View>
+        </AppRoot>
+      </AdaptivityProvider>
+    </ConfigProvider>
+  </QueryClientProvider>
 );

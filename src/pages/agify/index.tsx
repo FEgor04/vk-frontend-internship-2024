@@ -1,10 +1,28 @@
-import { Group, PanelHeader } from "@vkontakte/vkui";
+import {
+  Button,
+  ButtonGroup,
+  Group,
+  Input,
+  PanelHeader,
+} from "@vkontakte/vkui";
 
-export function AgifyPanel() {
+type Props = {
+  goToCatfact: () => void;
+};
+
+export function AgifyPanel({ goToCatfact }: Props) {
   return (
     <>
-      <PanelHeader>Agify</PanelHeader>
-      <Group>There's nothing here yet(</Group>
+      <PanelHeader>Гадалка Agify</PanelHeader>
+      <Group style={{ padding: "1rem" }}>
+        <Input placeholder="Введите имя" />
+        <ButtonGroup style={{ marginTop: "1rem" }}>
+          <Button>Узнать возраст</Button>
+          <Button appearance="neutral" onClick={goToCatfact}>
+            К котофактам
+          </Button>
+        </ButtonGroup>
+      </Group>
     </>
   );
 }

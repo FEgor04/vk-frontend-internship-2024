@@ -29,6 +29,9 @@ const MainScreens = () => {
   const goToAgify = () => {
     setActivePanel("agify");
   };
+  const goToCatfact = () => {
+    setActivePanel("catfact");
+  };
 
   return (
     <View activePanel={activePanel}>
@@ -36,7 +39,7 @@ const MainScreens = () => {
         <CatfactPanel goToAgify={goToAgify} />
       </Panel>
       <Panel id="agify">
-        <AgifyPanel />
+        <AgifyPanel goToCatfact={goToCatfact} />
       </Panel>
     </View>
   );

@@ -52,7 +52,7 @@ export function CatfactPanel({ goToAgify }: Props) {
             Загрузить котофакт
           </Button>
           <Button appearance="neutral" onClick={goToAgify}>
-            Перейти к форме
+            К гадалке
           </Button>
         </ButtonGroup>
       </Group>

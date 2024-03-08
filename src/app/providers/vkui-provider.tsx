@@ -2,28 +2,40 @@ import {
   AdaptivityProvider,
   AppRoot,
   ConfigProvider,
-  Group,
   Panel,
-  PanelHeader,
-  SimpleCell,
   View,
 } from "@vkontakte/vkui";
+import { useState } from "react";
+import { AgifyPanel } from "@/pages/agify";
+import { CatfactPanel } from "@/pages/catfact";
 
-export const VkUiProvider = () => {
+export function VkUiProvider() {
   return (
     <ConfigProvider>
       <AdaptivityProvider>
         <AppRoot>
-          <View activePanel="main">
-            <Panel id="main">
-              <PanelHeader>Catfact</PanelHeader>
-              <Group>
-                <SimpleCell>Hello</SimpleCell>
-              </Group>
-            </Panel>
-          </View>
+          <MainScreens />
         </AppRoot>
       </AdaptivityProvider>
     </ConfigProvider>
+  );
+}
+
+const MainScreens = () => {
+  const [activePanel, setActivePanel] = useState<"catfact" | "agify">(
+    "catfact",
+  );
+
+  const goToAgify = () => setActivePanel("agify");
+
+  return (
+    <View activePanel={activePanel}>
+      <Panel id="catfact">
+        <CatfactPanel goToAgify={goToAgify} />
+      </Panel>
+      <Panel id="agify">
+        <AgifyPanel />
+      </Panel>
+    </View>
   );
 };

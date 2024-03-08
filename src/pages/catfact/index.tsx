@@ -7,7 +7,7 @@ import {
   Textarea,
 } from "@vkontakte/vkui";
 import { useRef } from "react";
-import { getCatfactQueryOptions } from "@/app/entities/catfact";
+import { getCatfactQueryOptions } from "@/entities/catfact";
 
 type Props = {
   goToAgify: () => void;

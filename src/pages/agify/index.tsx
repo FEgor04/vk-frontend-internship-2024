@@ -46,15 +46,15 @@ export function AgifyPanel({ goToCatfact }: Props) {
           </Button>
         </ButtonGroup>
         <Spacing />
-        {data && (
-          <Paragraph>
-            {data.age != null ? (
+        <Paragraph>
+          {data ? (
+            data.age != null ? (
               <>Твой возраст: {data.age}</>
             ) : (
               <>Не получилось нагадать возраст</>
-            )}
-          </Paragraph>
-        )}
+            )
+          ) : null}
+        </Paragraph>
 
         <Spacing size={32} />
         <Accordion>

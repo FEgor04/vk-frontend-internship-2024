@@ -2,6 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Input, Paragraph } from "@vkontakte/vkui";
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
+import { useDebouncedCallback } from "use-debounce";
 import * as yup from "yup";
 
 function stringHasOnlyLetters(s: string) {
@@ -37,11 +38,9 @@ export const GuessAgeForm = ({ onSubmit }: Props) => {
     },
   });
 
-  const setSubmitTimeout = () => {
-    // setTimeout(() => {
-    //   void handleSubmit(onSubmit)();
-    // }, 3000);
-  };
+  const setSubmitTimeout = useDebouncedCallback(() => {
+    void handleSubmit(onSubmit)();
+  }, 3000);
 
   const { ref, ...nameRegister } = register("name");
 

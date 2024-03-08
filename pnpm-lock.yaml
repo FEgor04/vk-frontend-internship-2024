@@ -23,6 +23,9 @@ dependencies:
   react-hook-form:
     specifier: ^7.51.0
     version: 7.51.0(react@18.2.0)
+  use-debounce:
+    specifier: ^10.0.0
+    version: 10.0.0(react@18.2.0)
   vite-tsconfig-paths:
     specifier: ^4.3.1
     version: 4.3.1(typescript@5.3.3)(vite@5.1.5)
@@ -4406,6 +4409,18 @@ packages:
     dependencies:
       punycode: 2.3.1
     dev: true
+
+  /use-debounce@10.0.0(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-XRjvlvCB46bah9IBXVnq/ACP2lxqXyZj0D9hj4K5OzNroMDpTEBg8Anuh1/UfRTRs7pLhQ+RiNxxwZu9+MVl1A==,
+      }
+    engines: { node: ">= 16.0.0" }
+    peerDependencies:
+      react: ">=16.8.0"
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /vite-tsconfig-paths@4.3.1(typescript@5.3.3)(vite@5.1.5):
     resolution:

@@ -18,7 +18,7 @@ type Props = {
 
 export function CatfactPanel({ goToAgify }: Props) {
   const ref = useRef<HTMLTextAreaElement>(null);
-  const { isLoading, refetch } = useQuery({
+  const { isFetching, refetch } = useQuery({
     ...getCatfactQueryOptions(),
     enabled: false,
   });
@@ -53,7 +53,11 @@ export function CatfactPanel({ goToAgify }: Props) {
           placeholder="Нажми на кнопку - получишь котофакт"
         />
         <ButtonGroup style={{ marginTop: "1rem" }}>
-          <Button onClick={onLoadCatfact} loading={isLoading}>
+          <Button
+            onClick={onLoadCatfact}
+            loading={isFetching}
+            disabled={isFetching}
+          >
             Загрузить котофакт
           </Button>
           <Button appearance="neutral" onClick={goToAgify}>

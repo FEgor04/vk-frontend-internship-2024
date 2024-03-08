@@ -19,7 +19,7 @@ type Props = {
 export function AgifyPanel({ goToCatfact }: Props) {
   const [isEnabled, setIsEnabled] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
-  const { data, isLoading } = useQuery({
+  const { data, isFetching } = useQuery({
     ...guessAgeQueryOptions(name),
     enabled: isEnabled,
   });
@@ -38,7 +38,7 @@ export function AgifyPanel({ goToCatfact }: Props) {
       <Group style={{ padding: "1rem" }}>
         <GuessAgeForm onSubmit={handleFormSubmit} />
         <ButtonGroup style={{ marginTop: "1rem" }}>
-          <Button type="submit" form="guess-age-form" loading={isLoading}>
+          <Button type="submit" form="guess-age-form" loading={isFetching}>
             Узнать возраст
           </Button>
           <Button appearance="neutral" onClick={goToCatfact}>

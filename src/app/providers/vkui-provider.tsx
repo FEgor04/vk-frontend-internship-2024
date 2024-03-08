@@ -26,7 +26,9 @@ const MainScreens = () => {
     "catfact",
   );
 
-  const goToAgify = () => setActivePanel("agify");
+  const goToAgify = () => {
+    setActivePanel("agify");
+  };
 
   return (
     <View activePanel={activePanel}>

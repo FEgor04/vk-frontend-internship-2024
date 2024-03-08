@@ -1,5 +1,5 @@
-import { GuessAgeForm } from "@/widgets/guess-age-form";
 import { Button, ButtonGroup, Group, PanelHeader } from "@vkontakte/vkui";
+import { GuessAgeForm } from "@/widgets/guess-age-form";
 
 type Props = {
   goToCatfact: () => void;

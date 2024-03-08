@@ -8,11 +8,13 @@ function stringHasOnlyLetters(s: string) {
   return !new RegExp("\\d").test(s);
 }
 
-const nameSchema = yup.string().test(
-  "is-name",
-  (_) => `Это не имя`,
-  (value) => value != null && stringHasOnlyLetters(value),
-);
+const nameSchema = yup
+  .string()
+  .test(
+    "is-name",
+    `Это не имя`,
+    (value) => value != null && stringHasOnlyLetters(value),
+  );
 
 const formSchema = yup.object({
   name: nameSchema.required("Введите имя"),

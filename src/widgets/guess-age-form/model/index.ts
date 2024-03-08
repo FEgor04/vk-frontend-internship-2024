@@ -1,5 +1,5 @@
 export type AgifyGuess = {
   count: number;
   name: string;
-  age: number;
+  age: number | null;
 };

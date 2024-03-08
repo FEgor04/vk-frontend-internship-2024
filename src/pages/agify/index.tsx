@@ -5,8 +5,9 @@ import {
   Group,
   PanelHeader,
   Paragraph,
+  Spacing,
 } from "@vkontakte/vkui";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GuessAgeForm, guessAgeQueryOptions } from "@/widgets/guess-age-form";
 
 type Props = {
@@ -40,7 +41,16 @@ export function AgifyPanel({ goToCatfact }: Props) {
             К котофактам
           </Button>
         </ButtonGroup>
-        {data && <Paragraph>Твой возраст: {data.age}</Paragraph>}
+        <Spacing />
+        {data && (
+          <Paragraph>
+            {data.age != null ? (
+              <>Твой возраст: {data.age}</>
+            ) : (
+              <>Не получилось нагадать возраст</>
+            )}
+          </Paragraph>
+        )}
       </Group>
     </>
   );

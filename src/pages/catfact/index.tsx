@@ -1,4 +1,3 @@
-import { getCatfactQueryOptions } from "@/app/entities/catfact";
 import { useQuery } from "@tanstack/react-query";
 import {
   Button,
@@ -8,6 +7,7 @@ import {
   Textarea,
 } from "@vkontakte/vkui";
 import { useRef } from "react";
+import { getCatfactQueryOptions } from "@/app/entities/catfact";
 
 type Props = {
   goToAgify: () => void;

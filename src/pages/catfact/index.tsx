@@ -11,7 +11,6 @@ import {
 } from "@vkontakte/vkui";
 import { useRef } from "react";
 import { getCatfactQueryOptions } from "@/entities/catfact";
-import { AccordionContent } from "@vkontakte/vkui/dist/components/Accordion/AccordionContent";
 
 type Props = {
   goToAgify: () => void;

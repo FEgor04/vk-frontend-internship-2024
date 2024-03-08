@@ -38,9 +38,9 @@ export const GuessAgeForm = ({ onSubmit }: Props) => {
   });
 
   const setSubmitTimeout = () => {
-    setTimeout(() => {
-      void handleSubmit(onSubmit)();
-    }, 3000);
+    // setTimeout(() => {
+    //   void handleSubmit(onSubmit)();
+    // }, 3000);
   };
 
   const { ref, ...nameRegister } = register("name");

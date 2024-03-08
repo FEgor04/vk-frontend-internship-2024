@@ -1,24 +1,46 @@
-import { Button, ButtonGroup, Group, PanelHeader } from "@vkontakte/vkui";
-import { GuessAgeForm } from "@/widgets/guess-age-form";
+import { useQuery } from "@tanstack/react-query";
+import {
+  Button,
+  ButtonGroup,
+  Group,
+  PanelHeader,
+  Paragraph,
+} from "@vkontakte/vkui";
+import { useEffect, useState } from "react";
+import { GuessAgeForm, guessAgeQueryOptions } from "@/widgets/guess-age-form";
 
 type Props = {
   goToCatfact: () => void;
 };
 
 export function AgifyPanel({ goToCatfact }: Props) {
+  const [isEnabled, setIsEnabled] = useState<boolean>(false);
+  const [name, setName] = useState<string>("");
+  const { data, isLoading } = useQuery({
+    ...guessAgeQueryOptions(name),
+    enabled: isEnabled,
+  });
+
+  function handleFormSubmit(values: { name: string }) {
+    console.log(data);
+    setName(values.name);
+    setIsEnabled(true);
+  }
+
   return (
     <>
       <PanelHeader>Гадалка Agify</PanelHeader>
       <Group style={{ padding: "1rem" }}>
-        <GuessAgeForm onSubmit={console.log} />
+        <GuessAgeForm onSubmit={handleFormSubmit} />
         <ButtonGroup style={{ marginTop: "1rem" }}>
-          <Button type="submit" form="guess-age-form">
+          <Button type="submit" form="guess-age-form" loading={isLoading}>
             Узнать возраст
           </Button>
           <Button appearance="neutral" onClick={goToCatfact}>
             К котофактам
           </Button>
         </ButtonGroup>
+        {data && <Paragraph>Твой возраст: {data.age}</Paragraph>}
       </Group>
     </>
   );

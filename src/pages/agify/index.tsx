@@ -78,7 +78,12 @@ export function AgifyPanel({ goToCatfact }: Props) {
         <Accordion>
           <Accordion.Summary>Отмена запросов</Accordion.Summary>
           <Accordion.Content>
-            <Div style={infoStyle}>TODO</Div>
+            <Div style={infoStyle}>
+              Для отмены запросов используется функционал библиотеки{" "}
+              <code>TanStack Qeury</code>: сигнал об отмене{" "}
+              <code>AbortSignal</code> передается из параметров{" "}
+              <code>queryFn</code> в функцию <code>guessAge</code>
+            </Div>
           </Accordion.Content>
         </Accordion>
         <Spacing size={8} />

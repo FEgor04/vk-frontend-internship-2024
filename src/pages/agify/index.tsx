@@ -1,3 +1,4 @@
+import { GuessAgeForm } from "@/widgets/guess-age-form";
 import {
   Button,
   ButtonGroup,
@@ -15,7 +16,7 @@ export function AgifyPanel({ goToCatfact }: Props) {
     <>
       <PanelHeader>Гадалка Agify</PanelHeader>
       <Group style={{ padding: "1rem" }}>
-        <Input placeholder="Введите имя" />
+        <GuessAgeForm />
         <ButtonGroup style={{ marginTop: "1rem" }}>
           <Button>Узнать возраст</Button>
           <Button appearance="neutral" onClick={goToCatfact}>

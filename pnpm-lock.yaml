@@ -11,6 +11,9 @@ dependencies:
   "@tanstack/react-query":
     specifier: ^5.25.0
     version: 5.25.0(react@18.2.0)
+  "@vkontakte/vk-bridge":
+    specifier: ^2.14.1
+    version: 2.14.1
   "@vkontakte/vkui":
     specifier: ^6.0.1
     version: 6.0.1(react-dom@18.2.0)(react@18.2.0)
@@ -1425,6 +1428,13 @@ packages:
     dependencies:
       "@vkontakte/icons-sprite": 2.0.0(react@18.2.0)
       react: 18.2.0
+    dev: false
+
+  /@vkontakte/vk-bridge@2.14.1:
+    resolution:
+      {
+        integrity: sha512-ygUkWmAj1Yca1y6OKcFRhZjM2jJ8dlD/YM0hbz86iXc3Xrd8fc1aKGAOLmgPsXkqBR3mWMxA7PoNdlVLB97Qpg==,
+      }
     dev: false
 
   /@vkontakte/vkjs@1.1.1:

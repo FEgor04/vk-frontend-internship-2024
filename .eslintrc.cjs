@@ -30,6 +30,7 @@ module.exports = {
       "warn",
       { allowConstantExport: true },
     ],
+    "@typescript-eslint/array-type": ["error", { default: "generic" }],
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
   },
 };

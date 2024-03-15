@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Input, Paragraph } from "@vkontakte/vkui";
+import { FormItem, Input, Paragraph } from "@vkontakte/vkui";
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useDebouncedCallback } from "use-debounce";
@@ -47,13 +47,20 @@ export const GuessAgeForm = ({ onSubmit }: Props) => {
   return (
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
     <form ref={formRef} id="guess-age-form" onSubmit={handleSubmit(onSubmit)}>
-      <Input
-        placeholder="Введите имя"
-        {...nameRegister}
-        getRef={ref}
-        onInput={setSubmitTimeout}
-      />
-      <Paragraph style={{ color: "red" }}>{errors.name?.message}</Paragraph>
+      <FormItem
+        htmlFor="name"
+        top="Имя"
+        status={errors.name ? "error" : "default"}
+        bottom={errors.name ? errors.name.message : ""}
+      >
+        <Input
+          id="name"
+          placeholder=""
+          getRef={ref}
+          onInput={setSubmitTimeout}
+          {...nameRegister}
+        />
+      </FormItem>
     </form>
   );
 };

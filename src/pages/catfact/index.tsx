@@ -4,6 +4,7 @@ import {
   Button,
   ButtonGroup,
   Div,
+  FormItem,
   Group,
   PanelHeader,
   Spacing,
@@ -48,22 +49,28 @@ export function CatfactPanel({ goToAgify }: Props) {
     <>
       <PanelHeader>Catfact</PanelHeader>
       <Group>
-        <Textarea
-          getRef={ref}
-          placeholder="Нажми на кнопку - получишь котофакт"
-        />
-        <ButtonGroup>
-          <Button
-            onClick={onLoadCatfact}
-            loading={isFetching}
-            disabled={isFetching}
-          >
-            Загрузить котофакт
-          </Button>
-          <Button appearance="neutral" onClick={goToAgify}>
-            К гадалке
-          </Button>
-        </ButtonGroup>
+        <FormItem>
+          <Textarea
+            getRef={ref}
+            placeholder="Нажми на кнопку - получишь котофакт"
+          />
+        </FormItem>
+        <Spacing size={8} />
+        <FormItem>
+          <ButtonGroup>
+            <Button
+              size="m"
+              onClick={onLoadCatfact}
+              loading={isFetching}
+              disabled={isFetching}
+            >
+              Загрузить котофакт
+            </Button>
+            <Button appearance="neutral" onClick={goToAgify} size="m">
+              К гадалке
+            </Button>
+          </ButtonGroup>
+        </FormItem>
         <Spacing size={16} />
         <Accordion>
           <Accordion.Summary>Кэшируются ли запросы?</Accordion.Summary>

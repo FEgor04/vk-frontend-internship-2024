@@ -4,6 +4,7 @@ import {
   Button,
   ButtonGroup,
   Div,
+  FormItem,
   Group,
   PanelHeader,
   Paragraph,
@@ -37,24 +38,33 @@ export function AgifyPanel({ goToCatfact }: Props) {
       <PanelHeader>Гадалка Agify</PanelHeader>
       <Group>
         <GuessAgeForm onSubmit={handleFormSubmit} />
-        <ButtonGroup>
-          <Button type="submit" form="guess-age-form" loading={isFetching}>
-            Узнать возраст
-          </Button>
-          <Button appearance="neutral" onClick={goToCatfact}>
-            К котофактам
-          </Button>
-        </ButtonGroup>
+        <FormItem>
+          <ButtonGroup>
+            <Button
+              type="submit"
+              form="guess-age-form"
+              loading={isFetching}
+              size="m"
+            >
+              Узнать возраст
+            </Button>
+            <Button appearance="neutral" onClick={goToCatfact} size="m">
+              К котофактам
+            </Button>
+          </ButtonGroup>
+        </FormItem>
         <Spacing />
-        <Paragraph>
-          {data ? (
-            data.age != null ? (
-              <>Твой возраст: {data.age}</>
-            ) : (
-              <>Не получилось нагадать возраст</>
-            )
-          ) : null}
-        </Paragraph>
+        <FormItem>
+          <Paragraph>
+            {data ? (
+              data.age != null ? (
+                <>Твой возраст: {data.age}</>
+              ) : (
+                <>Не получилось нагадать возраст</>
+              )
+            ) : null}
+          </Paragraph>
+        </FormItem>
 
         <Spacing size={32} />
         <Accordion>

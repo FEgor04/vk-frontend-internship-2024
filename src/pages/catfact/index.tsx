@@ -47,12 +47,12 @@ export function CatfactPanel({ goToAgify }: Props) {
   return (
     <>
       <PanelHeader>Catfact</PanelHeader>
-      <Group style={{ padding: "1rem" }}>
+      <Group>
         <Textarea
           getRef={ref}
           placeholder="Нажми на кнопку - получишь котофакт"
         />
-        <ButtonGroup style={{ marginTop: "1rem" }}>
+        <ButtonGroup>
           <Button
             onClick={onLoadCatfact}
             loading={isFetching}

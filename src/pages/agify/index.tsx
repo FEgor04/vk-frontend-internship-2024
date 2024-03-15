@@ -35,9 +35,9 @@ export function AgifyPanel({ goToCatfact }: Props) {
   return (
     <>
       <PanelHeader>Гадалка Agify</PanelHeader>
-      <Group style={{ padding: "1rem" }}>
+      <Group>
         <GuessAgeForm onSubmit={handleFormSubmit} />
-        <ButtonGroup style={{ marginTop: "1rem" }}>
+        <ButtonGroup>
           <Button type="submit" form="guess-age-form" loading={isFetching}>
             Узнать возраст
           </Button>

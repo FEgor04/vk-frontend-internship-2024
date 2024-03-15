@@ -35,3 +35,29 @@
    - TanStack Query для работы с запросами
    - Typescript
    - React Hook Form + Yup для работы с формами и их валидацией
+
+## Инструкция по запуску
+
+- Установите нужные пакеты
+
+```bash
+pnpm i
+```
+
+- Запуск (в `dev`-режиме):
+
+```bash
+pnpm run dev
+```
+
+- Сборка в `production`-режиме:
+
+```bash
+pnpm run build
+```
+
+- Деплой с помощью пакета `@vkontake/vk-miniapps-deploy`:
+
+```bash
+pnpm run deploy
+```

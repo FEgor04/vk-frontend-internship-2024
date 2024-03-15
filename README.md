@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# Тестовое задание на отбор на стажировку VK 2024
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Стэк
 
-Currently, two official plugins are available:
+- `React` + `TypeScript`
+- `@tanstack/query` в качестве асинхронного стейт-менеджера
+- `yup` для валидации
+- `react-hook-form` для управления формами
+- Архитектурная методология `feature-sliced design`
+- Компоненты из `VKUI`, библиотека `@vkontakte/bridge`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Условие задания
 
-## Expanding the ESLint configuration
+Приложение должно состоять из нескольких частей:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Блок с кнопкой и текстовым полем. По нажатию на кнопку выполнить запрос к https://catfact.ninja/fact.
+  Полученный факт нужно записать в текстовое поле и установить курсор после первого слова.
+- Форма с текстовым полем и кнопкой отправки. Пользователь вводит своё имя в текстовом поле. По истечении 3-х секунд после ввода имени или при отправке формы выполняется запрос к https://api.agify.io/ с введенным именем в параметре name. Ответом будет возраст человека, определенный по имени. Этот ответ нужно отобразить под текстовым полем.
 
-- Configure the top-level `parserOptions` property like this:
+#### Особенности:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
-```
+- Необходимо предотвращать дублирующие запросы (не отправлять запрос с таким же именем).
+- Предусмотреть отправку следующего запроса до того, как текущий был обработан - прерывать запрос, чей ответ нам уже не нужен (частый кейс при медленном интернете).
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+#### Дополнительные задания:
+
+1. Использовать при реализации библиотеку VKUI (можно вынести формы в разные страницы, используя компоненты View и Panel).
+2. Реализовать валидацию поля ввода имени (имя может состоять только из букв).
+3. Развернуть данное приложение в виде мини-приложения ВКонтакте. Для этого дополнительно понадобится установить пакет bridge.
+
+4. Плюсом будет использование следующих библиотек и технологий, так как они активно применяются в проектах команды:
+   - Архитектурная методология Feature-Sliced Design
+   - TanStack Query для работы с запросами
+   - Typescript
+   - React Hook Form + Yup для работы с формами и их валидацией
